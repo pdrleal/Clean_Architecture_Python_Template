@@ -16,10 +16,9 @@
     <img src="docs/images/logo.png" alt="Logo" width="80" height="80">
   </a>
 
-<h3 align="center">AI StockPicker</h3>
+<h3 align="center">Clean_Architecture_Python_Template</h3>
 
   <p align="center">
-    An AI assisted portfolio recommendation.
     <br />
     <a href="docs/Home.md"><strong>Explore the docs »</strong></a>
     <br />

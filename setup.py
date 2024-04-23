@@ -1,10 +1,10 @@
 from setuptools import setup, find_packages 
 setup(
-        name="aistockpicker", 
+        name="Clean_Architecture_Python_Template",
         version="1.0.0",
-        description="AIStockPicker",
-        url="https://github.com/pdrleal/AIStockPicker", 
-        author="Pedro Pereira & João Caldeira", 
-        author_email="20220684@novaims.unl.pt",  
+        description="Clean_Architecture_Python_Template",
+        url="https://github.com/pdrleal/Clean_Architecture_Python_Template",
+        author="Pedro Pereira",
+        author_email="pdrlealpereira1@gmail.com",
         packages=find_packages()
 )

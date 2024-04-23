@@ -11,7 +11,7 @@
 		- [Implementation View](#implementation-view)
 		- [Processes View](#processes-view-1)
 		- [Physical View](#physical-view)
-	- [Level 3](#level-3---aistockpicker)
+	- [Level 3](#level-3---Clean_Architecture_Python_Template)
 		- [Logical View](#logical-view-2)
 		- [Implementation View](#implementation-view-1)
 		- [Processes View](#processes-view-2)
@@ -63,7 +63,7 @@ TBD
 
 
 
-## Level 3 - AIStockPicker
+## Level 3 - Clean_Architecture_Python_Template
 ### Logical View
 
 
