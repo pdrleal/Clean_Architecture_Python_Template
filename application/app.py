@@ -1,9 +1,7 @@
 from flask import Flask
 
-
-from src.infrastructure.routes.event_blueprint import event_blueprint
 from application.dependency_container import setup_dependency_container
-from src.interfaceadapters.controllers.event_controller import EventController
+from src.infrastructure.routes.event_blueprint import event_blueprint
 
 
 def create_app(config_name, dependency_container_packages=None,

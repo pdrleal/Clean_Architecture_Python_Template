@@ -10,7 +10,7 @@ event_blueprint = Blueprint('event-route', __name__)
 @event_blueprint.route("/create_event", methods=["POST"])
 @inject
 def create_event(event_controller: IEventController = Provide[DependencyContainer.event_controller]):
-    return event_controller.create_event(input_json = request.get_json(force=True))
+    return event_controller.create_event(input_json=request.get_json(force=True))
 
 
 @event_blueprint.route("/get_events", methods=["GET"])
