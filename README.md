@@ -1,2 +1,0 @@
-# Clean_Architecture_Python_Template
-Clean Architecture Python Template
