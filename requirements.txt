@@ -1,0 +1,11 @@
+dependency-injector~=4.41
+mysql-connector-python~=8.3
+PyMySQL~=1.1
+flask~=3.0
+pytest
+pytest-cov
+pytest-flask
+python-dotenv~=1.0
+requests~=2.31
+SQLAlchemy~=2.0
+urllib3~=2.2
