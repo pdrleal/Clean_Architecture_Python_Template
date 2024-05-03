@@ -10,7 +10,7 @@ def create_app(config_name, dependency_container_packages=None,
     config_module = f"application.config.{config_name.capitalize()}Config"
     app.config.from_object(config_module)
     # TODO: Register Flask Blueprints
-    app.register_blueprint(event_blueprint)
+    app.register_blueprint(event_blueprint, url_prefix='/api/events')
     # app.register_blueprint(project_blueprint)
     # ...
     app = setup_dependency_container(

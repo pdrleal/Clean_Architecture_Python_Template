@@ -4,17 +4,17 @@ import abc
 class IEventController(abc.ABC):
 
     @abc.abstractmethod
-    def create_event(self, input_json: dict):
+    def create(self):
         pass
 
     @abc.abstractmethod
-    def get_events(self):
+    def get_all(self):
         pass
 
     @abc.abstractmethod
-    def update_event(self):
+    def update(self):
         pass
 
     @abc.abstractmethod
-    def delete_event(self):
+    def delete(self):
         pass

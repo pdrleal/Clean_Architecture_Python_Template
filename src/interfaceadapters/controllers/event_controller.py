@@ -1,6 +1,6 @@
 import json
 
-from flask import Response
+from flask import Response, request
 
 from src.appservices.iservices.ievent_service import IEventService
 from src.dtos.event_dto import CreateEventInputDto
@@ -14,7 +14,8 @@ class EventController(IEventController):
     def __init__(self, event_service: IEventService) -> None:
         self.event_service = event_service
 
-    def create_event(self, input_json: dict):
+    def create(self):
+        input_json = request.get_json()
         event_dto = CreateEventInputDto(name=input_json['name'], recurring=input_json['recurring'],
                                         event_type=input_json['event_type'],
                                         start_datetime=input_json['start_datetime'],
@@ -25,14 +26,14 @@ class EventController(IEventController):
         result = self.event_service.create(event_dto)
         return Response(json.dumps(result, cls=EnhancedJSONEncoder), mimetype='application/json')
 
-    def get_events(self):
+    def get_all(self):
         result = self.event_service.get_all()
         return Response(json.dumps(result, cls=EnhancedJSONEncoder), mimetype='application/json')
 
-    def update_event(self):
+    def update(self):
         result = self.event_service.update()
         return Response(json.dumps(result, cls=EnhancedJSONEncoder), mimetype='application/json')
 
-    def delete_event(self):
+    def delete(self):
         result = self.event_service.delete()
         return Response(json.dumps(result, cls=EnhancedJSONEncoder), mimetype='application/json')
