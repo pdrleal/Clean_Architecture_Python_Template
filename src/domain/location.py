@@ -18,4 +18,3 @@ class Location(Base):
         back_populates must be the name of the attribute on the other side.
     """
     events: Mapped[List["Event"]] = relationship(back_populates="location")
-    location: Mapped["Location"] = relationship(back_populates="events")
