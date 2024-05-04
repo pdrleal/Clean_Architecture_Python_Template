@@ -33,24 +33,21 @@ class Event(Base):
         Validate only when all values are present:
         https://gist.github.com/matrixise/6417293?permalink_comment_id=1638256#gistcomment-1638256
         """
-        if (key == 'event_type' and isinstance(self.start_datetime, datetime)
-                and isinstance(self.end_datetime, datetime)):
-            self.check_datetimes_constraint()
-        elif (key == 'start_datetime' and isinstance(self.end_datetime, datetime)
-              and isinstance(self.event_type, str)):
-            self.check_datetimes_constraint()
-        elif (key == 'end_datetime' and isinstance(self.start_datetime, datetime)
-              and isinstance(self.event_type, str)):
-            self.check_datetimes_constraint()
+        if key == 'event_type' and isinstance(self.start_datetime, datetime) and isinstance(self.end_datetime, datetime):
+            self.check_datetimes_constraint(value, self.start_datetime, self.end_datetime)
+        elif key == 'start_datetime' and isinstance(self.end_datetime, datetime) and isinstance(self.event_type, str):
+            self.check_datetimes_constraint(self.event_type, value, self.end_datetime)
+        elif key == 'end_datetime' and isinstance(self.start_datetime, datetime) and isinstance(self.event_type, str):
+            self.check_datetimes_constraint(self.event_type, self.start_datetime, value)
         return value
 
-    def check_datetimes_constraint(self):
-        if self.end_datetime < self.start_datetime:
+    def check_datetimes_constraint(self, event_type, start_datetime: datetime, end_datetime: datetime):
+        if end_datetime < start_datetime:
             raise AssertionError("The End Datetime must be "
                                  "greater-or-equal than the Start Datetime")
-        if self.event_type == 'ALL_DAY':
-            if ((self.start_datetime.date() != self.end_datetime.date()) or
-                    (self.start_datetime.time() == time(9, 30)) or
-                    (self.end_datetime.time() == time(18, 30))):
+        if event_type == 'ALL_DAY':
+            if ((start_datetime.date() != end_datetime.date()) or
+                    (start_datetime.time() == time(9, 30)) or
+                    (end_datetime.time() == time(18, 30))):
                 raise ValueError("For 'ALL_DAY' events, Start Datetime must be set to 9:30 AM and End Datetime "
                                  "to 6:30 PM of the same day.")
