@@ -1,5 +1,5 @@
 from dependency_injector.wiring import inject, Provide
-from flask import Blueprint, request
+from flask import Blueprint
 
 from application.dependency_container import DependencyContainer
 from src.interfaceadapters.controllers.icontrollers.ievent_controller import IEventController

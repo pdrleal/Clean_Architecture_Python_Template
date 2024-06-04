@@ -1,11 +1,11 @@
 import abc
 
-from src.domain.event import Event
+from src.domain.people import People
 
 
-class IEventRepo(abc.ABC):
+class IPeopleRepo(abc.ABC):
     @abc.abstractmethod
-    def add(self, event: Event):
+    def add(self, model: People):
         pass
 
     @abc.abstractmethod

@@ -33,7 +33,8 @@ class Event(Base):
         Validate only when all values are present:
         https://gist.github.com/matrixise/6417293?permalink_comment_id=1638256#gistcomment-1638256
         """
-        if key == 'event_type' and isinstance(self.start_datetime, datetime) and isinstance(self.end_datetime, datetime):
+        if key == 'event_type' and isinstance(self.start_datetime, datetime) and isinstance(self.end_datetime,
+                                                                                            datetime):
             self.check_datetimes_constraint(value, self.start_datetime, self.end_datetime)
         elif key == 'start_datetime' and isinstance(self.end_datetime, datetime) and isinstance(self.event_type, str):
             self.check_datetimes_constraint(self.event_type, value, self.end_datetime)

@@ -1,13 +1,9 @@
-from datetime import datetime
-
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker, scoped_session
-from src.domain.base.base_class import Base
 
 from src.appservices.irepositories.ievent_repo import IEventRepo
 from src.appservices.iservices.ievent_service import IEventService
-from src.domain.event import Event
-from src.domain.location import Location
+from src.domain.base.base_class import Base
 from src.dtos.event_dto import CreateEventInputDto
 
 

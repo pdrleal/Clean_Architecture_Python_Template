@@ -1,6 +1,10 @@
 import os
 
 from dotenv import load_dotenv, find_dotenv
+from sqlalchemy import create_engine
+from sqlalchemy.orm import sessionmaker, scoped_session
+
+from src.domain.base.base_class import Base
 
 
 class DBContext:
@@ -13,6 +17,7 @@ class DBContext:
         host = os.getenv('MYSQL_HOST')
         port = os.getenv('MYSQL_PORT')
         # self.engine = create_engine(f"mysql+pymysql://{user}:{password}@{host}:{port}/{db_name}")
-        # self.engine = create_engine('sqlite:///C:\\sqlitedbs\\test.db', echo=True)
-        # self.session = sessionmaker(bind=self.engine)
-        # self.session = scoped_session(self.session)
+        engine = create_engine('sqlite:///C:\\sqlitedbs\\test.db', echo=True)
+
+        Base.metadata.create_all(engine)
+        self.Session = scoped_session(sessionmaker(bind=engine))

@@ -5,9 +5,8 @@
 from dataclasses import dataclass, asdict
 from datetime import datetime
 
-from src.domain.location import Location
-
 from src.domain.event import Event
+from src.domain.location import Location
 from src.dtos.location_dto import CreateLocationInputDto
 
 

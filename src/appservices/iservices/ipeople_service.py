@@ -1,15 +1,16 @@
 import abc
 
-from src.domain.event import Event
+from src.dtos.people_dto import CreatePeopleInputDto
 
 
-class IEventRepo(abc.ABC):
+class IPeopleService(abc.ABC):
+
     @abc.abstractmethod
-    def add(self, event: Event):
+    def create(self, dto: CreatePeopleInputDto):
         pass
 
     @abc.abstractmethod
-    def get(self):
+    def get_all(self):
         pass
 
     @abc.abstractmethod
@@ -17,5 +18,5 @@ class IEventRepo(abc.ABC):
         pass
 
     @abc.abstractmethod
-    def deactivate(self):
+    def delete(self):
         pass

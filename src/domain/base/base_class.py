@@ -15,8 +15,8 @@ class Base(DeclarativeBase):
         return cls.__name__.lower()
 
     id: Mapped[int] = mapped_column(primary_key=True, autoincrement=True)
-    created_at: Mapped[datetime] = mapped_column(default=func.now())
-    updated_at: Mapped[datetime] = mapped_column(default=func.now())
+    created_at: Mapped[datetime] = mapped_column(server_default=func.now(), nullable=True)
+    updated_at: Mapped[datetime] = mapped_column(onupdate=func.now(), nullable=True)
 
 
 load_dotenv(find_dotenv())

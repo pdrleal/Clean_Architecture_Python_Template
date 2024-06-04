@@ -1,15 +1,15 @@
-from src.appservices.irepositories.ievent_repo import IEventRepo
+from src.appservices.irepositories.ipeople_repo import IPeopleRepo
 from src.infrastructure.persistence.dbcontext import DBContext
 
 
-class EventRepo(IEventRepo):
+class PeopleRepo(IPeopleRepo):
 
     def __init__(self, db_context: DBContext):
         self.db_context = db_context
 
-    def add(self, event):
+    def add(self, model):
         with self.db_context.Session() as session:
-            session.add(event)
+            session.add(model)
             session.commit()
 
     def get(self):

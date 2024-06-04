@@ -1,15 +1,14 @@
 import abc
 
-from src.domain.event import Event
 
+class IPeopleController(abc.ABC):
 
-class IEventRepo(abc.ABC):
     @abc.abstractmethod
-    def add(self, event: Event):
+    def create(self):
         pass
 
     @abc.abstractmethod
-    def get(self):
+    def get_all(self):
         pass
 
     @abc.abstractmethod
@@ -17,5 +16,5 @@ class IEventRepo(abc.ABC):
         pass
 
     @abc.abstractmethod
-    def deactivate(self):
+    def delete(self):
         pass

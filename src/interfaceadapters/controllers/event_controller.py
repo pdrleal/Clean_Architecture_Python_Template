@@ -6,7 +6,7 @@ from src.appservices.iservices.ievent_service import IEventService
 from src.dtos.event_dto import CreateEventInputDto
 from src.dtos.location_dto import CreateLocationInputDto
 from src.interfaceadapters.controllers.icontrollers.ievent_controller import IEventController
-from src.serializers.event import EnhancedJSONEncoder
+from src.serializers.enhanced_json_encoder import EnhancedJSONEncoder
 
 
 class EventController(IEventController):
